@@ -19,28 +19,28 @@ public class SpringSecurityConfiguration {
 
     @Bean
     SecurityFilterChain configureSecurityFilterChain(HttpSecurity http) throws Exception {
-        
+
         http
-        .authorizeHttpRequests(authorizeRequests -> authorizeRequests.anyRequest().authenticated())
-        .formLogin(Customizer.withDefaults());
-        
+                .authorizeHttpRequests(authorizeRequests -> authorizeRequests.anyRequest().authenticated())
+                .formLogin(Customizer.withDefaults());
+
         return http.build();
-        
+
     }
-    
+
 
     @Bean
     public UserDetailsService users() {
-        
+
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        
+
         UserDetails user = User.withUsername("user")
                 .password(encoder.encode("password"))
                 .roles("USER")
                 .build();
-        
+
         return new InMemoryUserDetailsManager(user);
-        
+
     }
-    
+
 }
