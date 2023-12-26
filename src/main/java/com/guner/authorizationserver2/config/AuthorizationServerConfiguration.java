@@ -41,6 +41,7 @@ public class AuthorizationServerConfiguration {
                 .clientSecret("{noop}myClientSecretValue")
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
+                .authorizationGrantType(AuthorizationGrantType.PASSWORD) // password grant type için // deprecated
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
                 .redirectUri("http://127.0.0.1:8080/login/oauth2/code/users-client-oidc")
                 .redirectUri("http://127.0.0.1:8080/authorized")
