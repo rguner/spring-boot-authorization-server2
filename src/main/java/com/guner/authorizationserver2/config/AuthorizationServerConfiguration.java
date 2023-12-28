@@ -41,7 +41,7 @@ public class AuthorizationServerConfiguration {
                 .scope("read")
                 //.clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
                 .build();
-        
+
         return new InMemoryRegisteredClientRepository(registeredClient);
     }
 
